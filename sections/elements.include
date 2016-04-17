@@ -1,0 +1,31 @@
+<table>
+	<caption>List of elements</caption>
+	<thead>
+		<tr>
+			<th>Element</th>
+			<th> Description
+		    </th><th> Categories
+		    </th><th> Parents†
+		    </th><th> Children
+		    </th><th> Attributes
+		    </th><th> Interface</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th><{music}></th>
+			<td>Stream</td>
+			<td><a lt="interactive content">interactive</a></td>
+			<td><{playlist}></td>
+     		<td>
+     			<{music/title}>;
+     			<{music/authors}>;
+     			<{music/release}>;
+     			<{music/version}>;
+     			<{music/edit}>;
+     		</a>
+			
+			<td>{{HTMLMusicElement}}</td>
+		</tr>
+	</tbody>
+</table>

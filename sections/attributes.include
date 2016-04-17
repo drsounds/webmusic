@@ -1,0 +1,52 @@
+<h3 class="no-num" id="attributes-table">Attributes</h3>
+
+<em>This section is non-normative.</em>
+
+<table>
+  <caption>List of attributes (excluding event handler content attributes)</caption>
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Element(s)</th>
+      <th>Description</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th><code>title</code></th>
+      <td><{stream}></td>
+      <td>Title of the media</td>
+      <td><a>Text</a>*</td>
+    </tr>
+     <tr>
+      <th><code>release</code></th>
+      <td><{stream}></td>
+      <td>Title of the release</td>
+      <td><a>Text</a>*</td>
+    </tr>
+    <tr>
+      <th><code>version</code></th>
+      <td><{stream}></td>
+      <td>Version of the media</td>
+      <td><a>Text</a>*</td>
+    </tr><tr>
+      <th><code>edit</code></th>
+      <td><{stream}></td>
+      <td>Edit of the media</td>
+      <td><a>Text</a>*</td>
+    </tr>
+    <tr>
+      <th><code>type</code></th>
+      <td><{stream}></td>
+      <td>Type of media</td>
+      <td><a>Text</a>*</td>
+    </tr>
+    <tr>
+      <th><code>author</code></th>
+      <td><{stream}></td>
+      <td>Primary author of media </td>
+      <td><a>Text</a>*</td>
+    </tr>
+  </tbody>
+</tablE>

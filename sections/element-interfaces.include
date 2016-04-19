@@ -1,5 +1,168 @@
 <section>
-<h2 id="interface">JavaScript interfaces</h2>
-<h3 id="interfaces>Interaces</h3>
-Content musics are embedded into a web page using the {{music}} element.
+<h1 id="interface">JavaScript interfaces</h1>
+Content songs are embedded into a web page using the {{song}} element.
 
+
+<em>This section is non-normative</em>
+
+<p>Thee <{song}> element is an universal link to an abstract embedded track independent of media service. This element specifices the title, edit, version, authors and releaese and type of media of content it points to, but not what service it is on.</p>
+
+<h4 id="the-song-object">The {{HTMLSongElement}} object</h4>
+The WebStream specifications defines a {{HTMLSongElement}} interface, which this specification extends significantly:
+
+
+<h3 class="no-num" id="attributes-table">Attributes</h3>
+
+<em>This section is non-normative.</em>
+
+<table>
+  <caption>List of attributes (excluding event handler content attributes)</caption>
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Element(s)</th>
+      <th>Description</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th><code>title</code></th>
+      <td><{song}></td>
+      <td>Title of the media</td>
+      <td><a>Text</a>*</td>
+    </tr>
+     <tr>
+      <th><code>release</code></th>
+      <td><{song}></td>
+      <td>Title of the release</td>
+      <td><a>Text</a>*</td>
+    </tr>
+    <tr>
+      <th><code>version</code></th>
+      <td><{song}></td>
+      <td>Version of the media</td>
+      <td><a>Text</a>*</td>
+    </tr><tr>
+      <th><code>edit</code></th>
+      <td><{song}></td>
+      <td>Edit of the media</td>
+      <td><a>Text</a>*</td>
+    </tr>
+    <tr>
+      <th><code>type</code></th>
+      <td><{song}></td>
+      <td>Type of media</td>
+      <td><a>Text</a>*</td>
+    </tr>
+    <tr>
+      <th><code>author</code></th>
+      <td><{song}></td>
+      <td>Primary author of media </td>
+      <td><a>Text</a>*</td>
+    </tr>
+  </tbody>
+</tablE>
+
+<h4 id="resource-management">Resource management</h4>
+<dl class="domintro">
+	<dt><var>song</var> . <code>isPlaying</code> </dt>
+	<dd>
+		Returns if the media is currently playing
+	</dd>
+</dl>
+
+<div class="impl">
+The <dfn element-attr for="song"><code>isPlaying</code></dfn> attribute must return if the song is currently playing</a>.
+</div>
+
+
+<dl class="domintro">
+	<dt><var>song</var> . <code>currentPosition</code> </dt>
+	<dd>
+		Returns the current playing position of the media in seconds
+	</dd>
+</dl>
+
+<div class="impl">
+The <dfn element-attr for="song"><code>currentPosition</code></dfn> attribute must return an positive integer if currently playing, otherwise -1</a>.
+</div>
+
+<dl class="domintro">
+	<dt><var>song</var> . <code>authors</code> </dt>
+	<dd>
+		Returns the current playing position of the media in seconds
+	</dd>
+</dl>
+
+<div class="impl">
+The <dfn element-attr for="song"><code>authors</code></dfn> must be a string</a>.
+</div>
+
+<dl class="domintro">
+	<dt><var>song</var> . <code>title</code> </dt>
+	<dd>
+		Get sets the <code>title</code>
+	</dd>
+</dl>
+
+<div class="impl">
+The <dfn element-attr for="song"><code>title</code></dfn> must be a string</a>.
+</div>
+
+<dl class="domintro">
+	<dt><var>song</var> . <code>release</code> </dt>
+	<dd>
+		Get sets the <code>releasee</code> for the media
+	</dd>
+</dl>
+
+<div class="impl">
+The <dfn element-attr for="song"><code>release</code></dfn> must be a string and represent the name of the release</a>.
+</div>
+
+<dl class="domintro">
+	<dt><var>song</var> . <code>version</code> </dt>
+	<dd>
+		Get sets the <code>version</code> for the song
+	</dd>
+</dl>
+
+<div class="impl">
+The <dfn element-attr for="song"><code>version</code></dfn> must be a string and represent the name of the release</a>.
+</div>
+
+
+<dl class="domintro">
+	<dt><var>song</var> . <code>edit</code> </dt>
+	<dd>
+		Get sets the <code>edit</code> for the song. An edit differs from version as it is a cut, like Radio Edit.
+	</dd>
+</dl>
+
+<div class="impl">
+The <dfn element-attr for="song"><code>edit</code></dfn> must be a string and represent the name of the edit (Eg Radio)</a>.
+</div>
+
+
+<h3 class="no-num" id="resolvers">Playlists</h3>
+<em>This section is non-normative</em>
+
+<p>Multiple set of <{song}> elements are grouped into a <{playlist}> element, which faciliates a play context</p>
+
+<pre class="idl" data-highlight="webidl" dfn-for="HTMLPlaylistElement">
+enum ResolveResult {"available", "unavailable", "playable"};
+
+[OverrideBuiltins]
+partial /*sealed*/ interface <a lt="HTMLPlaylistElement">HTMLPlaylistElement</a> : HTMLElement {
+readonly attribute PlayState <dfn attribute for="HTMLPlaylistElement">status</dfn>;
+readonly attribute DOMString <dfn attribute for="HTMLPlaylistElement">name</dfn>;
+readonly attribute DOMString <dfn attribute for="HTMLPlaylistElement">author</dfn>;
+
+void <dfn method for="IHTMLPlaylistElement">play</dfn>();
+
+};
+
+</pre>
+
+<h3 class="no-num" id="resolvers">Resolvers</h3>

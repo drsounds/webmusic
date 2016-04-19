@@ -1,0 +1,26 @@
+<h2 id="resolvers">The <dfn interface>IMusicService</dfn> resolver system </h2>
+<p>In order to be able to play the playlist, the browser must be able to resolve the <{song}> elements to authorized music services, and play through their APIs. Music services are integrated into music browser through implementations of the {{IMusicService}} class, either in native or JavaScript code, provided as plug-ins for the user agent.</p>
+
+<em>This section is non-normative</em>
+
+<p>To allow playbacks from <{song}> elements, songs services can create plugins containing implementions of {{IMusicService}} interface in user-installable plugins which resolves the tracks to the particular service and allows instant playback</p>
+
+<pre class="idl" data-highlight="webidl" dfn-for="IMusicService">
+enum ResolveResult {"available", "unavailable", "playable"};
+
+[OverrideBuiltins]
+partial /*sealed*/ interface <a lt="IMusicService">IMusicService</a> {
+attribute DOMString? <dfn attribute for="IMusicService">connected</dfn>;
+
+ResolveResult <dfn method for="IMusicService">resolveAndPlayTrack</dfn>(HTMLSongElement song);
+void <dfn method for="IMusicService">seek</dfn>(Number position);
+void stop();
+void pause();
+};
+
+</pre>
+
+<h2 id="registering">Registering <dfn interface>IMusicService</dfn> resolvers</h2>
+<p>Registration of an {{IMusicResolver}} is done through <code>window.registerMusicService(IMusicResolver resolver)</code></p>
+
+</section>

@@ -1,31 +1,250 @@
+<h2 id="elements">Elements</h2>
+
+<h3 id="song">The <dfn element>song</dfn> element</h3>
+
+<p>Thee <{song}> element is an universal link to an abstract embedded track independent of media service. This element specifices the title, edit, version, authors and releaese and type of media of content it points to, but not what service it is on.</p>
+
+<div class="example">
+	Embed a song into a web page
+	<pre highlight="html">
+		&lt;!DOCTYPE html>
+		&lt;html>
+			&lt;head>
+				&lt;title>My page&lt;title>
+			&lt;head>
+			&lt;body>
+				&lt;h1>A song&lt;/h1>
+				&lt;song artist="Katy Perry" release="Dark Horse" title="Dark Horse">
+			&lt;body>
+		&lt;/html>
+	</pre>
+</div>
+
+<div class="example">
+	It should also be possible to embed a song only using it's ISRC
+	<pre highlight="html">
+		&lt;!DOCTYPE html>
+		&lt;html>
+			&lt;head>
+				&lt;title>My page&lt;title>
+			&lt;head>
+			&lt;body>
+				&lt;h1>A song&lt;/h1>
+				&lt;song isrc="SEYOK0000">
+			&lt;body>
+		&lt;/html>
+	</pre>
+</div>
+
+<h4 class="no-num" id="attributes-table">Attributes</h4>
+
+<em>This section is non-normative.</em>
+
 <table>
-	<caption>List of elements</caption>
-	<thead>
-		<tr>
-			<th>Element</th>
-			<th> Description
-		    </th><th> Categories
-		    </th><th> Parents†
-		    </th><th> Children
-		    </th><th> Attributes
-		    </th><th> Interface</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<th><{music}></th>
-			<td>Stream</td>
-			<td><a lt="interactive content">interactive</a></td>
-			<td><{playlist}></td>
-     		<td>
-     			<{music/title}>;
-     			<{music/authors}>;
-     			<{music/release}>;
-     			<{music/version}>;
-     			<{music/edit}>;
-     		</a>
-			
-			<td>{{HTMLMusicElement}}</td>
-		</tr>
-	</tbody>
+  <caption>List of attributes (excluding event handler content attributes)</caption>
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Element(s)</th>
+      <th>Description</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th><code>name</code></th>
+      <td><{song}></td>
+      <td>Title of the media</td>
+      <td><a>Text</a>*</td>
+    </tr>
+     <tr>
+      <th><code>release</code></th>
+      <td><{song}></td>
+      <td>Title of the release</td>
+      <td><a>Text</a>*</td>
+    </tr>
+    <tr>
+      <th><code>version</code></th>
+      <td><{song}></td>
+      <td>Version of the media</td>
+      <td><a>Text</a>*</td>
+    </tr><tr>
+      <th><code>edit</code></th>
+      <td><{song}></td>
+      <td>Edit of the media</td>
+      <td><a>Text</a>*</td>
+    </tr>
+    <tr>
+      <th><code>type</code></th>
+      <td><{song}></td>
+      <td>Type of media</td>
+      <td><a>Text</a>*</td>
+    </tr>
+    <tr>
+      <th><code>author</code></th>
+      <td><{song}></td>
+      <td>Primary author of media </td>
+      <td><a>Text</a>*</td>
+    </tr>
+  </tbody>
 </table>
+
+<h4 id="the-song-object">The <dfn interface for="song">HTMLSongElement</dfn> interface</h4>
+The WebStream specifications defines a {{HTMLSongElement}} interface, which this specification extends significantly:
+
+<pre class="idl" data-highlight="webidl" dfn-for="HTMLSongElement">
+enum <dfn enum>PlayState</dfn> { "ready", "paused", "playing" };
+enum <dfn enum>MediaType</dfn> { "song", "spoken", "video", "film", "tv" };
+[OverrideBuiltins]
+partial /*sealed*/ interface HTMLSongElement : HTMLElement {
+attribute DOMString? <dfn attribute for="HTMLSongElement">name</dfn>;
+attribute DOMString? <dfn attribute for="HTMLSongElement">authors</dfn>;
+attribute DOMString? <dfn attribute for="HTMLSongElement">version</dfn>;
+attribute DOMString? <dfn attribute for="HTMLSongElement">edit</dfn>;
+attribute DOMString? <dfn attribute for="HTMLSongElement">isrc</dfn>;
+attribute DOMString? <dfn attribute for="HTMLSongElement">index</dfn>;
+attribute Number? <dfn attribute for="HTMLSongElement">duration</dfn>;
+attribute MediaType <dfn attribute for="HTMLSongElement">type</dfn>;
+readonly attribute PlayState <dfn attribute for="HTMLSongElement">status</dfn>;
+readonly attribute Number <dfn attribute for="HTMLSongElement">currentPosition</dfn>;
+readonly attribute boolean <dfn attribute for="HTMLSongElement">isPlaying</dfn>;
+void <dfn method for="HTMLSongElement">play</dfn>();
+};
+HTMLSongElement implements HTMLElement;
+</pre>
+
+
+<h3 id="song">The <dfn element>playlist</dfn> element</h3>
+
+<p>Thee <{playlist}> element is an universal link to an abstract embedded track independent of media service. This element specifices the title, edit, version, authors and releaese and type of media of content it points to, but not what service it is on.</p>
+
+<div class="example">
+	Embed a playlist into a web page
+	<pre highlight="html">
+		&lt;!DOCTYPE html>
+		&lt;html>
+			&lt;head>
+				&lt;title>My page&lt;title>
+			&lt;head>
+			&lt;body>
+				&lt;h1>A song&lt;/h1>
+				&lt;playlist name="My test playlist">
+					&lt;song artist="Katy Perry" album="Dark Horse" name="Dark Horse">
+					&lt;song artist="Darude" album="Before the Storm" name="Sandstorm" edit="Radio Edit">
+				&lt;/playlist>
+			&lt;body>
+		&lt;/html>
+	</pre>
+</div>
+
+
+<h4 id="playlist_interface">The <dfn interface for="playlist">HTMLPlaylistElement</dfn> interface</h4>
+<em>This section is non-normative</em>
+
+
+<pre class="idl" data-highlight="webidl" dfn-for="HTMLPlaylistElement">
+enum ResolveResult {"available", "unavailable", "playable"};
+
+[OverrideBuiltins]
+partial /*sealed*/ interface <a lt="HTMLPlaylistElement">HTMLPlaylistElement</a> : HTMLElement {
+readonly attribute PlayState <dfn attribute for="HTMLPlaylistElement">status</dfn>;
+readonly attribute DOMString <dfn attribute for="HTMLPlaylistElement">name</dfn>;
+readonly attribute DOMString <dfn attribute for="HTMLPlaylistElement">author</dfn>;
+
+void <dfn method for="IHTMLPlaylistElement">play</dfn>();
+
+};
+
+</pre>
+
+
+<h3>Methods</h3>
+
+<dl class="domintro">
+	<dt><var>song</var> . <code>play</code> </dt>
+	<dd>
+		Play the song
+	</dd>
+</dl>
+
+<h3>Attributes</h3>
+
+<dl class="domintro">
+	<dt><var>song</var> . <code>isPlaying</code> </dt>
+	<dd>
+		Returns if the media is currently playing
+	</dd>
+</dl>
+
+<div class="impl">
+The <dfn element-attr for="song"><code>isPlaying</code></dfn> attribute must return if the song is currently playing</a>.
+</div>
+
+
+<dl class="domintro">
+	<dt><var>song</var> . <code>currentPosition</code> </dt>
+	<dd>
+		Returns the current playing position of the media in seconds
+	</dd>
+</dl>
+
+<div class="impl">
+The <dfn element-attr for="song"><code>currentPosition</code></dfn> attribute must return an positive integer if currently playing, otherwise -1</a>.
+</div>
+
+<dl class="domintro">
+	<dt><var>song</var> . <code>authors</code> </dt>
+	<dd>
+		Returns the current playing position of the media in seconds
+	</dd>
+</dl>
+
+<div class="impl">
+The <dfn element-attr for="song"><code>authors</code></dfn> must be a string</a>.
+</div>
+
+<dl class="domintro">
+	<dt><var>song</var> . <code>title</code> </dt>
+	<dd>
+		Get sets the <code>title</code>
+	</dd>
+</dl>
+
+<div class="impl">
+The <dfn element-attr for="song"><code>title</code></dfn> must be a string</a>.
+</div>
+
+<dl class="domintro">
+	<dt><var>song</var> . <code>release</code> </dt>
+	<dd>
+		Get sets the <code>releasee</code> for the media
+	</dd>
+</dl>
+
+<div class="impl">
+The <dfn element-attr for="song"><code>release</code></dfn> must be a string and represent the name of the release</a>.
+</div>
+
+<dl class="domintro">
+	<dt><var>song</var> . <code>version</code> </dt>
+	<dd>
+		Get sets the <code>version</code> for the song
+	</dd>
+</dl>
+
+<div class="impl">
+The <dfn element-attr for="song"><code>version</code></dfn> must be a string and represent the name of the release</a>.
+</div>
+
+
+<dl class="domintro">
+	<dt><var>song</var> . <code>edit</code> </dt>
+	<dd>
+		Get sets the <code>edit</code> for the song. An edit differs from version as it is a cut, like Radio Edit.
+	</dd>
+</dl>
+
+<div class="impl">
+The <dfn element-attr for="song"><code>edit</code></dfn> must be a string and represent the name of the edit (Eg Radio)</a>.
+</div>
+

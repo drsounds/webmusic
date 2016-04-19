@@ -6,15 +6,14 @@ Shortname: web-music
 Level: 1
 Editor: Alexander Forselius, drsounds@gmail.com
 Abstract: cross service Music/Video streaming elements for browser
-Group: webmusic
+Group: websong
+TR: http://www.w3.org/TR/html51/
 </pre>
 <pre class="anchors">
 spec:web-music; type:element; url:; for:attribute;
 	text: Title
 spec:web-music; type:element; url:; for:attribute;
 	text: authors
-spec:web-music; type:interface; url:; for:element;
-	text:HTMLMusicElement
 urlPrefix: http://validator.w3.org/nu/; url:; type:dfn;
     text: Nu Markup Validation Service
 urlPrefix: http://www.w3.org/TR/workers/; type: interface; spec: workers;
@@ -535,14 +534,8 @@ spec:url; type:dfn; for:hostsyntax;
 path: sections/introduction.include
 </pre>
 <pre class="include">
-path: sections/dom.include
-</pre>
-<pre class="include">
-path: sections/element-interfaces.include
-</pre>
-<pre class="include">
-path: sections/attributes.include
-</pre>
-<pre class="include">
 path: sections/elements.include
+</pre>
+<pre class="include">
+path: sections/resolvers.include
 </pre>

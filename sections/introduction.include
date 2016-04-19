@@ -1,4 +1,13 @@
+<section>
 <h2 id="introduction">Introduction</h2>
-<p>Streaming music has evolved during the recent seven yeears, with a lot of different services, such Spotify, Soundcloud, iTunes, AppleMusic etc. and people are sharing music on social media more than ever. This spec is about a <dfn element>music</dfn> and <dfn element>playlist</dfn> element which is an abstract representation of a playlist of streaming music content, which is independent of music service. Through implementions of {{IMusicResolver}} classes provided by plugins connecting to an user preferred service, users can share tracks and other can instantly play it on their own music services.</p>
+<p>The component model for the Web ("Web Music") consists of three parts:</p>
+<ol>
+	<li><a lt="elements">Elements</a>, which defines playable elements</li>
+	<li><a lt="resolvers">Resolvers</a>, which defines the music resolver system</a></li>
+</ol>
 
-The web today are around various kind of streaming media, which are provied from various kind of sources. Recent years streaming services allows web authors to embed various kind of copyrighted materials in form of links and widgets from popular streaming services, which allows monetization of the content. However, there is today no service neutral media embedding. This spec is about a new element called <dfn element>stream</dfn> and <dfn element>playlist</dfn> that will automatically resolve to the user matching music service and immediately play it.</p>
+<h3 id="background">Background</h3>
+<i>This section is non-normative</i>
+<p>Legal streaming music has become the new music business with a lot of different services, such Spotify, Soundcloud, iTunes, AppleMusic etc. To create a fair market for music services we have created this specifications of a set of elements and interfaces that should allow people to share and enjoy music regardless of what service they use.</p>
+
+</section>

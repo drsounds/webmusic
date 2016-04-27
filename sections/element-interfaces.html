@@ -150,8 +150,9 @@ The <dfn element-attr for="song"><code>edit</code></dfn> must be a string and re
 
 <p>Multiple set of <{song}> elements are grouped into a <{playlist}> element, which faciliates a play context</p>
 
-<pre class="idl" data-highlight="webidl" dfn-for="HTMLPlaylistElement">
-enum ResolveResult {"available", "unavailable", "playable"};
+<dl title='[Constructor] interface Resolver]' class="idl" data-highlight="webidl" dfn-for="HTMLPlaylistElement">
+<dt>enum ResolveResult {"available", "unavailable", "playable"}</dt>
+<dd>Enum specifying a resolver result</dd>
 
 [OverrideBuiltins]
 partial /*sealed*/ interface <a lt="HTMLPlaylistElement">HTMLPlaylistElement</a> : HTMLElement {
@@ -163,6 +164,6 @@ void <dfn method for="IHTMLPlaylistElement">play</dfn>();
 
 };
 
-</pre>
+</dl>
 
 <h3 class="no-num" id="resolvers">Resolvers</h3>

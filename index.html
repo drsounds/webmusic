@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>This Is The Name Of Your Specification</title>
+    <title>WebMusic 1.0: Cross service music sharing tags</title>
     <meta charset='utf-8'>
     <script src='https://www.w3.org/Tools/respec/respec-w3c-common'
             async class='remove'></script>
@@ -11,7 +11,7 @@
           specStatus:           "ED",
           
           // the specification's short name, as in http://www.w3.org/TR/short-name/
-          shortName:            "xxx-xxx",
+          shortName:            "web-music",
 
           // if your specification has a subtitle that goes below the main
           // formal title, define it here
@@ -39,11 +39,11 @@
           // only "name" is required
           editors:  [
               {
-                  name:       "Your Name"
+                  name:       "Alexander Forselius"
               ,   url:        "http://example.org/"
-              ,   mailto:     "you@example.org"
-              ,   company:    "Your Company"
-              ,   companyURL: "http://example.com/"
+              ,   mailto:     "drsounds@gmail.com"
+              ,   company:    "Dr. Sounds"
+              ,   companyURL: "http://dr-sounds.com/"
               },
           ],
           
@@ -51,7 +51,7 @@
           wg:           "In Charge Of This Document Working Group",
           
           // URI of the public WG page
-          wgURI:        "http://example.org/really-cool-wg",
+          wgURI:        "http://drsounds.github.io/webmusic",
           
           // name (without the @w3c.org) of the public mailing to which comments are due
           wgPublicList: "spec-writers-anonymous",
@@ -80,11 +80,15 @@
       </p>
     </section>
     
-    <section>
-      <h2>Section Title</h2>
-      <p>
-        Blah blah blah...
-      </p>
+    <section data-include="sections/introduction.html"> 
+    </section>
+    <section data-include="sections/elements.html"> 
+    </section>
+    <section data-include="sections/element-interfaces.html"> 
+    </section>
+    <section data-include="sections/resolvers.html"> 
+    </section>
+    <section data-include="sections/streams.html"> 
     </section>
     
     <section class='appendix'>
